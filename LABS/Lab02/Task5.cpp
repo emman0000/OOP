@@ -1,19 +1,18 @@
-
 //Programmer Emman Ali=23k0051 LAB02 Task 5
 #include <iostream>
 #include <string>
 using namespace std;
 
-const int MAX_SIZE = 50;
-// Structure 
+const int MAX_SIZE = 50; //allows size capacity to stay the same and not be modified. 
+// Structure for Product 
 struct Product {
     string productName;int price; int quantity; int productId;
-};
+}; //end struct
 // Class 
-class ProductManagementSystem {
+class ProductManagementSystem { //this class consists of three different functions all related to the update of products in inventory
 private: Product products[MAX_SIZE]; int numProducts;
 public:
-    ProductManagementSystem() : numProducts(0) {} //constructor
+    ProductManagementSystem() : numProducts(0) {} //constructor allows initiallisation of objects and values that are different from its other values.
 
     // Function to add a new product
     void addProduct(const string& name, int price, int quantity, int productId) {
@@ -50,10 +49,10 @@ products[numProducts].productName = name ; products[numProducts].price = price; 
         } //end loop
         if (!exists) {
             cout << "No product with the given product ID is present in the inventory." << endl;
-        }
-    }
-};
-
+        }//end if 
+    }//end void function
+}; //end of class
+//main function starts
 int main() {
     ProductManagementSystem P;
     int choice;
@@ -65,8 +64,8 @@ int main() {
         cout << "What would you like to do pick a number: ";
         cin >> choice;
 
- switch (choice) {
-case 1: {
+ switch (choice) { //using switch to help navigate through all the possible outcomes from the program
+case 1: { //adding the product in this case
 int productId, quantity, price;        
 string name;
 cout << "Enter the Product Id:"; cin >> productId;
@@ -76,14 +75,14 @@ cout << "Enter the name of the product: ";  cin.ignore();getline(cin, name);
  P.addProduct(name, price, quantity, productId);
  break;}
 
-case 2: {
+case 2: { //viewing the product in this case 
 int productId;
 cout << "Enter an Id to display product details: ";
 cin >> productId;
  P.displayProducts(productId);
 break;}
 
- case 3: {
+ case 3: { //updating the product in this case
 int productId, newQuantity, newPrice;
 cout << "Enter Product ID to update information: ";
  cin >> productId;
@@ -94,7 +93,7 @@ cin >> newPrice;
 P.updateProduct(productId, newQuantity, newPrice);
  break;}
 
- case 4: {
+ case 4: { //leaving the program 
 cout << "Exiting the program." << endl;
  break;}
 
