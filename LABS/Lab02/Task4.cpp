@@ -2,17 +2,17 @@
 #include <iostream>
 #include<string>
 using namespace std;
-struct Register{
+struct Register{ //structure for Register consists of only two variables, courseID could also be declared as a string data type that way I can take 0s but here I have kept it simple.
   int courseID; string courseName; 
-};
+}; //end struct
 
-struct Student: public Register {
+struct Student: public Register { //struct student inherits the members of the struct register
   int StudentId;  string FirstName; string LastName; string CellNo; string email;
 };
-
+//main function starts 
 int main() {
- Student students[5];
-  for(int i=0; i<5; i++){
+ Student students[5]; //array to store memory 
+  for(int i=0; i<5; i++){ //pretty straightforward loop that takes iput for all 5 students categorically
 cout<< "Enter all the details for Student Number:" <<i+1<<endl;
     cout<<"Enter the course Id for this Student:";  cin >> students[i].courseID;
     cin.ignore();
@@ -28,7 +28,7 @@ cout<< "Enter all the details for Student Number:" <<i+1<<endl;
      getline(cin, students[i].email);
   }//end the loop for input 
   //Diplay the details of the all students
-  for(int i=0; i<5; i++){
+  for(int i=0; i<5; i++){ //another loop to display the register
     cout<<"Student Number:"<<i+1<<endl;
     cout<<"Course ID:"<<students[i].courseID<<endl;
     cout<<"Course Name:"<<students[i].courseName<<endl;
