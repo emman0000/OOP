@@ -1,3 +1,4 @@
+//Programmer Emman Abrar 23k0051
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -10,36 +11,33 @@ public:
     virtual double perimeter() const = 0;
     virtual void displayProperties() const = 0;
     virtual ~Shape() {} 
-};
+};//end main base class
 
 // Circle class derived from Shape
 class Circle : public Shape {
-private:
-    double radius;
+double radius;
 public:
     Circle(double r) : radius(r) {}
 
     double area() const override {
         return M_PI * radius * radius;
-    }
+    }//end 
 
     double perimeter() const override {
         return 2 * M_PI * radius;
-    }
+    }//end 
 
     void displayProperties() const override {
         cout << "Properties of the Circle:" << endl;
         cout << "- Area: " << area() << endl;
         cout << "- Perimeter: " << perimeter() << endl;
         cout << "- Diameter: " << 2 * radius << endl;
-    }
-};
+    }//end 
+};//end class 
 
-// Rectangle class derived from Shape
+// Rectangle class 
 class Rectangle : public Shape {
-private:
-    double length;
-    double width;
+ double length; double width;
 public:
     Rectangle(double l, double w) : length(l), width(w) {}
 
@@ -47,21 +45,21 @@ public:
 
     double area() const override {
         return length * width;
-    }
+    }//end 
 
     double perimeter() const override {
         return 2 * (length + width);
-    }
+    }//end 
 
     void displayProperties() const override {
         cout << "Properties of the Rectangle:" << endl;
         cout << "- Area: " << area() << endl;
         cout << "- Perimeter: " << perimeter() << endl;
         cout << "- Diagonal: " << sqrt(length * length + width * width) << endl;
-    }
-};
+    }//end 
+};//end class
 
-// Square class derived from Rectangle
+// Square class 
 class Square : public Rectangle {
 public:
     Square(double side) : Rectangle(side, side) {}
@@ -71,33 +69,32 @@ public:
         cout << "- Area: " << area() << endl;
         cout << "- Perimeter: " << perimeter() << endl;
         cout << "- Diagonal: " << sqrt(2) * this->get_width() << endl;
-    }
+    }//end 
 };
 
-// Triangle class derived from Shape
+// Triangle class 
 class Triangle : public Shape {
-private:
-    double side1, side2, side3;
+ double side1, side2, side3;
 public:
     Triangle(double s1, double s2, double s3) : side1(s1), side2(s2), side3(s3) {}
 
     double area() const override {
         double s = (side1 + side2 + side3) / 2;
         return sqrt(s * (s - side1) * (s - side2) * (s - side3));
-    }
+    }//end 
 
     double perimeter() const override {
         return side1 + side2 + side3;
-    }
+    }//end 
 
     void displayProperties() const override {
         cout << "Properties of the Triangle:" << endl;
         cout << "- Area: " << area() << endl;
         cout << "- Perimeter: " << perimeter() << endl;
-    }
-};
+    }//end 
+};//edn class
 
-// EquilateralTriangle class derived from Triangle
+// EquilateralTriangle class
 class EquilateralTriangle : public Triangle {
 public:
     EquilateralTriangle(double side) : Triangle(side, side, side) {}
@@ -106,8 +103,8 @@ public:
         cout << "Properties of the Equilateral Triangle:" << endl;
         cout << "- Area: " << area() << endl;
         cout << "- Perimeter: " << perimeter() << endl;
-    }
-};
+    }//end
+};//end class
 
 int main() {
     string choice;
@@ -159,6 +156,5 @@ int main() {
     } while (choice == "yes");
 
     cout << "Thank you for using the Geometry Competition Calculator!" << endl;
-
     return 0;
-}
+}//end main 
