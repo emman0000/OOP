@@ -1,58 +1,49 @@
+//Programmer Emman Ali 23k0051 task 1 
 #include <iostream>
 #include <string>
 using namespace std;
+
 class Logo {
-
-    string logo;
-
+  string design;
 public:
-    Logo(const string& logo) : logo(logo) {}
-
-    friend class Platform;
-};
+    Logo(const string& design) : design(design) {}
+    friend class Platform; //declaring friend class here helps use all the functions n the calss 
+};//end class
 
 class Platform {
-
-    string name;
-    Logo logo;
+    string platformName; Logo logo;
 
 public:
-    Platform(const string& name, const string& logo) : name(name), logo(logo) {}
+    Platform(const string& platformName, const string& design) : platformName(platformName), logo(design) {}
 
-    void changeLogo(const string& newLogo) {
-        logo.logo = newLogo;
-    }
+    void modifyLogo(const string& newDesign) {
+        logo.design = newDesign;
+    }//end function
 
-    void display() const {
-        cout << "Platform: " << name << endl;
-        cout << "Logo: " << logo.logo << endl;
-    }
-};
+    void showDetails() const {
+        cout << "Platform Name: " << platformName << endl;
+        cout << "Design: " << logo.design << endl;
+    }//end function
+};//end class
 
 class Server {
-
-    string type;
-    int capacity;
+    string category; int storage;
 
 public:
-    Server(const std::string& type, int capacity) : type(type), capacity(capacity) {}
+    Server(const string& category, int storage) : category(category), storage(storage) {}
 
-    void display() const {
-        cout << "Server Type: " << type << endl;
-        cout << "Capacity: " << capacity << "GB" << endl;
-    }
-};
+    void displayInfo() const {
+        cout << "Server Category: " << category << endl;
+        cout << "Storage: " << storage << "GB" << endl;
+    }//end functionk
+};//end class 
 
 int main() {
-    Platform twitter("Twitter", "Blue Bird");
-    twitter.display();
-
-    cout << std::endl;
-
-    // Changing logo to Dogecoin
-    twitter.changeLogo("Dogecoin");
-    twitter.display();
+    Platform socialMedia("Social Media", "Blue Bird");
+    socialMedia.showDetails();
+    cout << "\n\n";
+    socialMedia.modifyLogo("Dogecoin");
+    socialMedia.showDetails();
 
     return 0;
-}//end main 
-
+}//end main
