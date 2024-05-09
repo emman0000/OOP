@@ -16,15 +16,15 @@ BankAccount(int accId, double bl, int* th, int n): accountId(accId), balance(bl)
 }//end of constructor 
 
 //copy constructor
-BankAccount(const BankAccount& other): accountId(other.accountId), balance(other.balance), numTransactions(other.numTransactions);{
-  transactionHisory = new int [numTransactions];;
+BankAccount(const BankAccount& other): accountId(other.accountId), balance(other.balance), numTransactions(other.numTransactions){
+  transactionHistory = new int [numTransactions];
   for(int i=0; i<numTransactions; i++){
     transactionHistory [i]= other.transactionHistory[i];
   }//end for loop
 }//end copy construtor
 
 //Destructor
-~BankAccount(){delete[]transactionHistroy;}//end of destructor
+~BankAccount(){delete[]transactionHistory;}//end of destructor
 
 //getters
 int getaccountId()const{return accountId;}
@@ -47,7 +47,7 @@ void updateTransactionHistory(int*  newTransaction, int newNumTransactions){ del
     //deletes
    transactionHistory = new int[newNumTransactions];
   for(int i=0; i<newNumTransactions; i++){
-    transactionHistory[i] = newTransactions[i];
+    transactionHistory[i] = newTransaction[i];
   }//end of for loop
     numTransactions = newNumTransactions;
   }//end function to update account details for transaction
